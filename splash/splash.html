@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Загрузка...</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top: 5px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        .status {
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">Dota 2 Item Builder</div>
+    <div class="loader"></div>
+    <div class="status" id="status">Загрузка приложения...</div>
+
+    <script>
+        // Обновление статуса загрузки
+        setTimeout(() => {
+            document.getElementById('status').textContent = 'Инициализация компонентов...';
+        }, 1500);
+
+        setTimeout(() => {
+            document.getElementById('status').textContent = 'Почти готово...';
+        }, 3000);
+    </script>
+</body>
+</html>

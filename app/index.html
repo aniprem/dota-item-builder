@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dota 2 Item Builder</title>
+    <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛠️ Конструктор предметов Dota 2</h1>
+            <p>Создавайте кастомные пассивные предметы для Dota 2</p>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2>📋 Основные параметры предмета</h2>
+                <div class="form-group">
+                    <label for="itemName">Название предмета:</label>
+                    <div class="input-with-prefix">
+                        <span class="prefix">item_</span>
+                        <input type="text" id="itemName" placeholder="tree_branch" pattern="[a-zA-Z_]+" title="Только английские буквы и подчеркивания">
+                        <span class="suffix">_custom</span>
+                    </div>
+                    <div id="nameError" class="error-message">⚠️ Используйте только английские буквы и символ _</div>
+                    <small style="color: #666; margin-top: 5px; display: block;">Только английские буквы и _ (подчеркивание). Пример: tree_branch, super_heart, etc.</small>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="itemCost">Стоимость предмета:</label>
+                        <input type="number" id="itemCost" min="0" value="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="itemMaxLevel">Максимальный уровень (макс. 100):</label>
+                        <input type="number" id="itemMaxLevel" min="1" max="100" value="1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="abilityBehavior">Основной тип способности:</label>
+                    <select id="abilityBehavior" disabled>
+                        <option value="DOTA_ABILITY_BEHAVIOR_PASSIVE" selected>Пассивная (DOTA_ABILITY_BEHAVIOR_PASSIVE)</option>
+                    </select>
+                    <small style="color: #666; margin-top: 5px; display: block;">Пока что поддерживатся только пассивный тип</small>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="itemSellable" checked>
+                        <label for="itemSellable">Можно продать</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="itemPurchasable" checked>
+                        <label for="itemPurchasable">Можно купить</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="itemDroppable">
+                        <label for="itemDroppable">Выпадает после смерти</label>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>⚡ Бонусы предмета по уровням</h2>
+                
+                <div class="form-group bonus-toggle-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="enableDamageBonus">
+                        <label for="enableDamageBonus">🗡️ Бонус к урону</label>
+                    </div>
+                    <div id="bonusDamageLevels" class="bonus-levels" style="display: none;"></div>
+                </div>
+                
+                <div class="form-group bonus-toggle-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="enableAttackRangeBonus">
+                        <label for="enableAttackRangeBonus">🎯 Бонус к дальности атаки</label>
+                    </div>
+                    <div id="bonusAttackRangeLevels" class="bonus-levels" style="display: none;"></div>
+                </div>
+                
+                <div class="form-group bonus-toggle-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="enableArmorBonus">
+                        <label for="enableArmorBonus">🛡️ Бонус к броне</label>
+                    </div>
+                    <div id="bonusArmorLevels" class="bonus-levels" style="display: none;"></div>
+                </div>
+                
+                <div class="form-group bonus-toggle-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="enableAttackSpeedBonus">
+                        <label for="enableAttackSpeedBonus">⚡ Бонус к скорости атаки</label>
+                    </div>
+                    <div id="bonusAttackSpeedLevels" class="bonus-levels" style="display: none;"></div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>📜 Генерация кода</h2>
+                <div class="form-group">
+                    <label>Статус готовности:</label>
+                    <div id="validationStatus" class="validation-status">
+                        <span class="error-icon">❌</span>
+                        <span>Заполните все обязательные параметры</span>
+                    </div>
+                </div>
+                <button id="generateBtn" class="btn-generate" disabled>Сгенерировать KV и Lua код</button>
+                
+                <div class="code-output-container">
+                    <div class="code-section">
+                        <div class="code-header">
+                            <h3>KV Код</h3>
+                            <button id="downloadKvBtn" class="btn-download" disabled>💾 Скачать KV</button>
+                        </div>
+                        <pre id="kvOutput" class="code-content"></pre>
+                    </div>
+                    
+                    <div class="code-section">
+                        <div class="code-header">
+                            <h3>Lua Код</h3>
+                            <button id="downloadLuaBtn" class="btn-download" disabled>💾 Скачать Lua</button>
+                        </div>
+                        <pre id="luaOutput" class="code-content"></pre>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="editor.js"></script>
+</body>
+</html>

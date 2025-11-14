@@ -1,0 +1,112 @@
+.eula-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.eula-content {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.eula-content h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.author-info {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border-left: 4px solid #3498db;
+}
+
+.terms-section {
+    margin: 25px 0;
+}
+
+.terms-section h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.terms-list {
+    list-style: none;
+    padding: 0;
+}
+
+.terms-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 1.1em;
+}
+
+.terms-list li:last-child {
+    border-bottom: none;
+}
+
+.warning-section {
+    background: #fff3cd;
+    border: 2px solid #ffeaa7;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.eula-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-accept {
+    background: #27ae60;
+    color: white;
+    padding: 18px 35px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.3em;
+    font-weight: bold;
+    transition: all 0.3s;
+    min-width: 200px;
+}
+
+.btn-accept:hover {
+    background: #219a52;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+.btn-reject {
+    background: #e74c3c;
+    color: white;
+    padding: 18px 35px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.3em;
+    font-weight: bold;
+    transition: all 0.3s;
+    min-width: 200px;
+}
+
+.btn-reject:hover {
+    background: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
